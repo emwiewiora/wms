@@ -1,11 +1,9 @@
 const masterItemResolvers = require('./masterItems');
-// const usersResolvers = require('./users');
+const employeeResolvers = require('./employee');
 
 module.exports = {
   Query: {
-    ...masterItemResolvers.Query
-  },
-//  Mutation: {
-    // ...usersResolvers.Mutation
-//  }
+    ...masterItemResolvers.Query,
+    ...employeeResolvers.Query,
+  }
 };

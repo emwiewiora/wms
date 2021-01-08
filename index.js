@@ -1,21 +1,36 @@
 const { ApolloServer } = require("apollo-server");
-const gql = require("graphql-tag");
+const { gql } = require("apollo-server");
 const mongoose = require("mongoose");
+
+
+// const typeDefs = require('./graphql/typeDefs');
+// const resolvers = require('./graphql/resolvers');
 
 const masterItem = require("./models/MasterItem");
 const employee = require("./models/Employee");
 const { MONGODB } = require("./config");
 
 const typeDefs = gql`
-  type masterItem {
+  type MasterItem {
     id: ID!
     itemNumber: String!
     description: String!
     descriptionShort: String!
     perCase: Int!
+    casPerTier: Int!
+    casPerPallet: Int!
+    caseWidth: Int!
+    caseDepth: Int!
+    caseHeight: Int!
+    ageOut: Int!
     zoneA: String!
+    zoneB: String!
+    zoneC: String!
+    partialZoneA: String!
+    partialZoneB: String!
+    temperature: String!
   }
-  type employee {
+  type Employee {
     id: ID!
     nameF: String!
     nameM: String!
@@ -29,8 +44,8 @@ const typeDefs = gql`
     createdAt: String!
   }
   type Query {
-    getMasterItems: [masterItem]
-    getEmployees: [employee]
+    getMasterItems: [MasterItem]
+    getEmployees: [Employee]
   }
 `;
 
