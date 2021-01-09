@@ -1,4 +1,4 @@
-const Post = require("../../models/MasterItem");
+const masterItem = require("../../models/MasterItem");
 
 module.exports = {
   Query: {

@@ -1,4 +1,4 @@
-const Post = require("../../models/Employee");
+const employee = require("../../models/Employee");
 
 module.exports = {
   Query: {
